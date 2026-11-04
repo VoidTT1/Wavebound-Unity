@@ -70,14 +70,31 @@
 ## Repository Structure
 
 ```text
-WaveBound
-  Assets
-    Attacks
-      OverlapAttack.cs
-      kick.cs
-    Camera
-      Camera.cs
-  Media
+
+ Assets/
+   Scripts/
+     Attacks/
+     - OverlapAttack.cs
+     - kick.cs
+     Camera/
+      - Camera.cs
+     NpcAI/
+      - EnemyChase.cs
+      - DefaultEnemy.cs
+       Addons/
+        - BlockedNpcController.cs
+         EnemyHealth/
+          - EnemyHealth.cs
+          - BlockedNPCHealth.cs
+         BossAddons/
+          - FootStepAttackAddon.cs
+          - StoneProjectile.cs
+     Physics/
+      - Exploison.cs
+      - DestroyObj.cs
+     Portals/
+      - Portal.cs
+      - Teleporter.cs
  
 ```
 
