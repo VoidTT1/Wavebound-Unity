@@ -56,7 +56,7 @@
 - Enemy navigation NavMesh
 - Rigidbody movement
 - Physics of destruction(физика разрушения)
-- Settings menu
+- Enum classes
 - Localization
 - Music and sound effects
 - Animation Event, Sub-State machine
@@ -70,33 +70,15 @@
 ## Repository Structure
 
 ```text
-WaveBound/
-│
-├── Code/
-│   ├── AI/
-│   │   ├── EnemyChase.cs
-│   │   ├── BossController.cs
-│   │   └── ...
-│   │
-│   ├── Combat/
-│   │   ├── OverlapAttack.cs
-│   │   ├── Explosion.cs
-│   │   └── ...
-│   │
-│   ├── Player/
-│   │   ├── Mover.cs
-│   │   └── ...
-│   │
-│   ├── Interfaces/
-│   │   └── ...
-│   │
-│   └── ...
-│
-├── Media/
-│   ├── gameplay.gif
-│   └── screenshots/
-│
-└── README.md
+WaveBound
+  Assets
+    Attacks
+      OverlapAttack.cs
+      kick.cs
+    Camera
+      Camera.cs
+  Media
+ 
 ```
 
 ## Enemy AI
