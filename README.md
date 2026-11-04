@@ -27,7 +27,7 @@
   
 С самого старта у тебя уже есть 100 монет в инвентаре(получать монеты нужно за убийство врагов), на них ты покупаешь пистолет цена которого ровно 100 монет, после покупки начинается 1-й раунд(для того что бы проходить раунды/волны нужно за отведённое время уничтожить определённое количество врагов которое записанно сверху справа на протяжении всего раунда)
 
-Враги:
+### Враги:
  - Обычный(15 урона, 50hp) - 20 монет
  - Взрывающийся(Враг который при сближении с тобой взрывается нанося 45 урона, 30hp) - 30 монет
  - Враг со щитом(Когда есть щит идёт медленно, когда щит сломанн бежит с нормальной скоростью, в обоих случаях наносит 20 урона, 50hp у щита и 100hp у самого скелета) - 40 монет
@@ -41,7 +41,7 @@
    - Удар об землю(прыгает и ударяется об землю создавая удраную волну вокруг себя которая отталкивает и наносит 25 урона)
  25 урона с обычного удара и 5000hp) - 3000 монет
 
-Раунды:
+### Раунды:
  - 1 раунд :Обычные 6                                                                                      (6)
  - 2 раунд: Обычные(10), Взрывающиеся(3)                                                                   (13)
  - 3 раунд: Обычные(15), Взрывающиеся(5), Скульптуры(3), Враги со щитом(5)                                 (30)
@@ -49,8 +49,7 @@
  - 5 раунд: Взрывающиеся(10), Враги со щитом(10), Подземные(10), Скульптуры(5), Босс(1)                    (35 + Босс)
 
 
-## ✨ Current Features
-
+## Текущие функции
 - ScriptableObject/DataBase system(Inventory, Shop, weapons and items), Inerfaces(IDamageable, IWeaponState...)
 - First person weapon system
 - WorldItem(DataBase)
@@ -68,62 +67,42 @@
 
 
 # ⚙️ Technical Showcase
-
-This repository contains **selected gameplay programming systems** from WaveBound.
-
-The complete Unity project is intentionally not published. Some game systems, third-party assets and production files are excluded from the public repository.
-
-The source code available here focuses on systems that demonstrate my C# and Unity gameplay programming experience.
-
----
-
-## 🤖 Enemy AI & State Management
-
-Enemy behaviour is controlled by a state-based architecture.
-
-Typical enemy flow:
+## Repository Structure
 
 ```text
-Chase
-  ↓
-Attack
-  ↓
-Cooldown
-  ↓
-Chase
+WaveBound/
+│
+├── Code/
+│   ├── AI/
+│   │   ├── EnemyChase.cs
+│   │   ├── BossController.cs
+│   │   └── ...
+│   │
+│   ├── Combat/
+│   │   ├── OverlapAttack.cs
+│   │   ├── Explosion.cs
+│   │   └── ...
+│   │
+│   ├── Player/
+│   │   ├── Mover.cs
+│   │   └── ...
+│   │
+│   ├── Interfaces/
+│   │   └── ...
+│   │
+│   └── ...
+│
+├── Media/
+│   ├── gameplay.gif
+│   └── screenshots/
+│
+└── README.md
 ```
 
-Special enemy and boss behaviours can temporarily take control of the enemy through an external-action state before returning control to the base AI.
+## Enemy AI
+В этом проекте я старался делать все системы и скрипты правильно, а значит они должны быть максимально гибкими и система ИИ врагов не стала исключением
 
-### Examples
-
-- `EnemyChase.cs`
-- `BossController.cs`
-- Boss ability addons
-- Special enemy behaviour scripts
-
-### Concepts demonstrated
-
-- Enums for explicit gameplay states
-- State transitions
-- NavMesh pathfinding
-- Separation between base AI and special abilities
-- Animation Event integration
-- Behaviour composition through additional components
-
----
-
-## 💥 Combat & Damage
-
-Combat systems use reusable damage interfaces instead of directly depending on concrete enemy or player classes.
-
-```csharp
-IDamageable
-```
-
-allows different objects to receive damage through the same contract.
-
-The combat code demonstrates:
+## Combat & Damage
 
 - Interface-based damage handling
 - `Physics.OverlapSphereNonAlloc`
@@ -133,16 +112,8 @@ The combat code demonstrates:
 - Area damage
 - Physics interactions
 
-### Example systems
 
-- `OverlapAttack.cs`
-- `Explosion.cs`
-- Enemy melee attacks
-- Boss area attacks
-
----
-
-## 💨 Custom Knockback System
+## Custom Knockback System
 
 The player movement controller directly manages Rigidbody velocity.
 
@@ -170,8 +141,10 @@ This keeps player movement responsive while preserving physical knockback behavi
 
 ---
 
-## 👑 Boss Ability System
+## Boss Abilities
 
+Отдельно я бы хотел выделить босса, а точнее его аддоны, потому что в основе лежит привычный EnemyChase(погоня и атака), по сути любой нпс может стать боссом если к нему прикрепить опрделённые способности
+То есть всю систему нпс я постарался сделать максимально гибкой
 The boss uses the same base movement / chase system as regular enemies while additional ability components temporarily take control when an ability is executed.
 
 Abilities currently include systems such as:
