@@ -17,7 +17,6 @@
 ![WaveBound Gameplay](Media/gameplay.gif)
 
 
-
 ## Геймплей
 В самой игре тебе нужно покупать оружие и патроны к нему для того что бы отбиватся от врагов
 Сейчас есть всего 4 вида оружия:
@@ -50,30 +49,23 @@
  - 5 раунд: Взрывающиеся(10), Враги со щитом(10), Подземные(10), Скульптуры(5), Босс(1)                    (35 + Босс)
 
 
----
-
 ## ✨ Current Features
 
-- Wave-based round progression
-- Multiple enemy types with unique behaviours
-- Boss encounter with multiple abilities
-- First-person weapon system
-- Multiple weapon types
-- Ammo and reload management
-- Inventory and hotbar
-- Item pickups and world items
-- Shop and currency system
-- Weapon upgrades
-- Item spawning between / during rounds
-- Enemy navigation using Unity NavMesh
-- Rigidbody-based player movement
-- Knockback and physics interactions
+- ScriptableObject/DataBase system(Inventory, Shop, weapons and items), Inerfaces(IDamageable, IWeaponState...)
+- First person weapon system
+- WorldItem(DataBase)
+- Enemy navigation NavMesh
+- Rigidbody movement
+- Physics of destruction(физика разрушения)
 - Settings menu
 - Localization
 - Music and sound effects
-- Animation Event based combat timing
+- Animation Event, Sub-State machine
+- Notification system
+- OverLap, RayCast
+- C# Action events
+- Custom Knockback/External velocity system
 
----
 
 # ⚙️ Technical Showcase
 
@@ -265,17 +257,6 @@ WaveBound/
 
 ---
 
-# 🛠️ Technologies
-
-| Technology | Usage |
-|---|---|
-| Unity | Game engine |
-| C# | Gameplay and systems programming |
-| Unity Physics | Collision, overlap queries and Rigidbody interactions |
-| NavMesh | Enemy navigation and pathfinding |
-| Animator / Animation Events | Attack and gameplay synchronization |
-| TextMeshPro | UI |
-| ScriptableObjects | Data-driven gameplay configuration |
 
 **Unity version:** `<UNITY_VERSION>`
 
