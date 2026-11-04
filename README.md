@@ -1,45 +1,48 @@
 # Wavebound-Beta-v0.2
 
-**WaveBound** is a 3D first-person wave survival shooter developed in Unity and C#.
+**WaveBound** - 3D FPS игра, созданный на Unity(2022.3.62f3) 
 
-Fight through increasingly difficult enemy waves, earn resources, purchase weapons and upgrades, and prepare for the next round.
-
-> **Project type:** Solo game development / Gameplay Programming Portfolio  
-> **Current version:** Beta  
-> **Platform:** Windows / WebGL *(if available)*
-
----
-
-## 🎮 Play the Game
+Основной геймплей игры заключается в волнах или же раундах, в каждом раунде есть определённое количество разновидных врагов
 
 ### Browser
-[▶ Play on itch.io](<ITCH_IO_URL>)
-
-### Windows
-[⬇ Download latest Windows build](<GITHUB_RELEASE_URL>)
+[Play on itch.io](<ITCH_IO_URL>)
 
 ### Gameplay Video
-[▶ Watch gameplay](<YOUTUBE_URL>)
+[Youtube Video](<YOUTUBE_URL>)
 
----
+### Windows Version
+[Download Windows build](<GITHUB_RELEASE_URL>)
 
-## 🎥 Gameplay
 
 ![WaveBound Gameplay](Media/gameplay.gif)
 
-> Replace this with a short 8–15 second GIF showing combat, enemy waves, weapon switching and preferably the boss.
 
----
 
-## 📖 About the Project
+## Геймплей
+В самой игре тебе нужно покупать оружие и патроны к нему для того что бы отбиватся от врагов
+Сейчас есть всего 4 вида оружия:Пистолет(Pistol), M249(Rifle), Smg(SMG), дробовик(Shootgun) покупаешь ты их в магазине.
+С самого старта у тебя уже есть 100 монет в инвентаре(получать монеты нужно за убийство врагов), на них ты покупаешь пистолет цена которого ровно 100, после покупки начинается 1й раунд(для того что бы проходить раунды/волный нужно за отведённое время уноичтожить определённое количество врагов которое записанно сверху с права на протяжении всего раунда)
 
-WaveBound is a wave-based FPS focused on progressively more difficult combat encounters.
+Враги:
+Обычный(15 урона, 50hp) - 20 монет
+Взрывающийся(Враг который при сближении с тобой взрывается нанося 45 урона, 30hp) - 30 монет
+Враг со щитом(Когда есть щит идёт медленно, когда щит сломанн бежит с нормальной скоростью, в обоих случаях наносит 20 урона, 50hp у щита и 100hp у самого скелета) - 40 монет
+Скульптура(враг на которого нужно смотреть что бы он не двигался, имеет повышенную скорость и урон в 25 едениц, 200hp) - 65 монет
+Подземный(Обычный враг который вылезает из земли возле тебя, 15 урона, 50hp) - 30 монет
+Босс(Имеет 4 способности: 
+ - призыв миньёнов(призывает вокруг себя обычных врагов у которых 30hp и 15 урона), 
+ - бросок камня(подбирает камень с земли и бросает его в игрока, при поподании немного отталкивает и наносит 30 урона), 
+ - Таран(Остонавливается и после чего бежит по прямой в сторону игрока, при попадании отталкивает и наносит 25 урона),
+ - Удар об землю(прыгает и ударяется об землю создавая удраную волну вокруг себя которая отталкивает и наносит 25 урона)
+ 25 урона с обычного удара и 5000hp) - 3000 монет
 
-Each round introduces increased pressure through enemy variety and limited resources. Between and during waves, the player can obtain weapons, ammunition, upgrades and other items to prepare for upcoming encounters.
+Раунды:
+1 раунд :Обычные 6                                                                                      (6)
+2 раунд: Обычные(10), Взрывающиеся(3)                                                                   (13)
+3 раунд: Обычные(15), Взрывающиеся(5), Скульптуры(3), Враги со щитом(5)                                 (30)
+4 раунд: Обычные(15), Взрывающиеся(7), Скульптуры(4), Враги со щитом(10), Подземные(4)                  (40)
+5 раунд: Взрывающиеся(10), Враги со щитом(10), Подземные(10), Скульптуры(5), Босс(1)                    (35 + Босс)
 
-The current Beta contains **5 playable waves**, while the game architecture is designed to support a larger progression of waves and additional maps in future versions.
-
-The current map is a farm environment, but the gameplay systems and progression are not tied to a specific location or enemy type.
 
 ---
 
