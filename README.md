@@ -102,56 +102,29 @@
 В проекте использовались 
 
 ## Enemy AI
-[Скрипт]
+[EnemyChase]
 В данном скрипте я использовал enum классы и для того что бы добавить враге гибкости, по сути для его работы нужны:базовые компоненты(collider,rb), navMesh и скрипты EnemyChase(или же DefaultEnemy) и скрипт атаки, хочешь что бы враг умел таранить? пожалуйста, делаешь скрипт и в нём вызываешь BeginExternalAction() что бы остановить работу enemyChase и когда закончил включаешь обратно при помощи EndExternalAction(), так делать(        enemyChase.currentState = EnemyChase.EnemyState.ExternalAction;) настоятельно не рекомендую, так ты обойдёшь методы SetState и EnterState где меняется состояние и враг может нормально функционировать, 
 лучше все таки использовать SetState(); и через него вызывать ExternalAction, или же BeginExternalAction.
 
-Эта система помогла мне легче написать аддоны для других видов врагов, прямой пример: []
+Эта система помогла мне легче написать аддоны для других видов врагов, прямой пример: [FootStepAttackAddon.cs] - это аддон для босса(да, в основе опять же лежит EnemyChase), там перед стартом анимации(Animation Event в которой запускает освновной метод) активируется BeginExternalAction.
+
+*По мимо этого в скрипте используются привычне NavMesh от Unity для задавания направления, а так же в другой версии скрипта [DefaultEnemy] при помощи navMesh реализован патруль
+
 
 ## Combat & Damage
 
-- Interface-based damage handling
-- `Physics.OverlapSphereNonAlloc`
-- LayerMask filtering
-- Obstacle checks
-- Animation Event driven attack timing
-- Area damage
-- Physics interactions
+Основным оружием для игрока является огнестрел, различные винтовки и пистолеты.
+Для стрельбы используется извествная система RayCast и интерфейс IDamageable для нанесения урона. 
+Так же реализован и трассер котрый я создавал прямо в Unity при помощи Trail renderer и префабом переносил в оружие
+
+Основным оружием по мимо способностей и особенностей для Enemy является OverlapAttack, его можно просмотреть здесь>[OverlapAttack.cs]
 
 
 ## Custom Knockback System
 
-The player movement controller directly manages Rigidbody velocity.
 
-Because of this, using Unity's standard `AddExplosionForce` on the player would cause horizontal knockback velocity to be overwritten by the movement controller on the next physics update.
 
-To solve this, player knockback is stored separately as an **external velocity**:
 
-```text
-Player input velocity
-        +
-External knockback velocity
-        ↓
-Final Rigidbody velocity
-```
-
-The external velocity gradually decays without disabling player control.
-
-Normal physics objects still use Unity's standard:
-
-```csharp
-Rigidbody.AddExplosionForce(...)
-```
-
-This keeps player movement responsive while preserving physical knockback behaviour.
-
----
-
-## Boss Abilities
-
-Отдельно я бы хотел выделить босса, а точнее его аддоны, потому что в основе лежит привычный EnemyChase(погоня и атака), по сути любой нпс может стать боссом если к нему прикрепить опрделённые способности
-То есть всю систему нпс я постарался сделать максимально гибкой
-The boss uses the same base movement / chase system as regular enemies while additional ability components temporarily take control when an ability is executed.
 
 Abilities currently include systems such as:
 
