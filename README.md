@@ -120,7 +120,7 @@
 Основным оружием по мимо способностей и особенностей для Enemy является OverlapAttack, его можно просмотреть здесь>[OverlapAttack.cs]
 
 
-## Custom Knockback System
+## Physics
 
 
 
@@ -135,24 +135,6 @@ Abilities currently include systems such as:
 
 This avoids duplicating the entire enemy controller for every boss ability.
 
----
-
-## 🌊 Wave System
-
-Rounds are configured as data rather than being hard-coded into individual enemy scripts.
-
-Each wave can control values such as:
-
-- Enemy composition
-- Maximum simultaneous enemies
-- Spawn interval
-- Round duration
-- Intermission duration
-- Item spawn probability
-
-This makes wave balancing possible without changing the underlying gameplay logic.
-
----
 
 ## 🎒 Inventory & Weapon Systems
 
