@@ -2,7 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-// Версия которая НЕ используется в игре
+// Р’РµСЂСЃРёСЏ РєРѕС‚РѕСЂР°СЏ РќР• РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РІ РёРіСЂРµ
+// РџРѕ СЃСѓС‚Рё РѕС‚Р»РёС‡Р°РµС‚СЃСЏ РЅР°Р»РёС‡РёРµРј РїР°С‚СЂСѓР»СЏ
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Rigidbody))]
@@ -40,20 +41,20 @@ public class DefaultEnemy : MonoBehaviour
     [SerializeField] float rotateSpeed = 8f;
 
     [Header("NavMesh placement")]
-    [SerializeField] float sampleRadius = 3f; // радиус поиска NavMesh при старте
+    [SerializeField] float sampleRadius = 3f;
 
     [Header("Surface Patrol (NavMesh)")]
     [SerializeField] bool enableSurfacePatrol = true;
-    [SerializeField] float patrolRadius = 8f;            // радиус, в котором выбираются цели патруля (от originalPos)
-    [SerializeField] float patrolPointWait = 1.5f;       // ожидание на точке
+    [SerializeField] float patrolRadius = 8f;
+    [SerializeField] float patrolPointWait = 1.5f;
 
     [Header("Speeds")]
     [SerializeField] private float patrolSpeed = 2.5f;
     public float chaseSpeed = 6f;
 
     [Header("Attack Timing")]
-    [SerializeField] private float attackDamageDelay = 0.65f;   // когда именно наносится урон после старта анимации
-    [SerializeField] private float attackRecoveryTime = 1f;  // сколько ждать после удара прежде чем атаковать снова
+    [SerializeField] private float attackDamageDelay = 0.65f;
+    [SerializeField] private float attackRecoveryTime = 1f;
 
 
     [Header("Animation")]
@@ -117,7 +118,7 @@ public class DefaultEnemy : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogWarning("DefaultEnemy: navMesh не найден");
+                    Debug.LogWarning("DefaultEnemy: navMesh Г­ГҐ Г­Г Г©Г¤ГҐГ­");
                     agent = null;
                     rb.interpolation = RigidbodyInterpolation.Interpolate;
                     return;
@@ -441,14 +442,14 @@ public class DefaultEnemy : MonoBehaviour
 
         if (player != null)
         {
-            float dist = Vector3.Distance(transform.position, player.position); //Vector3.Distance - вычисляет дистанцию между 2-мя точками
+            float dist = Vector3.Distance(transform.position, player.position); //Vector3.Distance - ГўГ»Г·ГЁГ±Г«ГїГҐГІ Г¤ГЁГ±ГІГ Г­Г¶ГЁГѕ Г¬ГҐГ¦Г¤Гі 2-Г¬Гї ГІГ®Г·ГЄГ Г¬ГЁ
             if (dist <= stoppingDistance + 0.5f)
             {
                 if (overlapAttack == null)
                     overlapAttack = GetComponentInChildren<OverlapAttack>();
 
                 if (overlapAttack == null) 
-                    Debug.LogError("DefaulEnemy: остутвует OverLapAttack на объекте"); 
+                    Debug.LogError("DefaulEnemy: Г®Г±ГІГіГІГўГіГҐГІ OverLapAttack Г­Г  Г®ГЎГєГҐГЄГІГҐ"); 
                 overlapAttack.TryPerformAttack();
             }
         }
