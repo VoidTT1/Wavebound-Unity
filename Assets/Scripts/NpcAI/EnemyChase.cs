@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-// Версия которая используется в игре
+// Р’РµСЂСЃРёСЏ РєРѕС‚РѕСЂР°СЏ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РІ РёРіСЂРµ
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Rigidbody))]
@@ -37,14 +37,14 @@ public class EnemyChase : MonoBehaviour
     [SerializeField] float rotateSpeed = 8f;
 
     [Header("NavMesh placement")]
-    [SerializeField] float sampleRadius = 3f; // радиус поиска NavMesh при старте
+    [SerializeField] float sampleRadius = 3f;
 
     [Header("Speed")]
     public float _speed = 6f;
 
     [Header("Attack Timing")]
-    [SerializeField] private float attackDamageDelay = 0.65f;   // когда именно наносится урон после старта анимации
-    [SerializeField] private float attackRecoveryTime = 1f;  // сколько ждать после удара, прежде чем можно атаковать снова
+    [SerializeField] private float attackDamageDelay = 0.65f;
+    [SerializeField] private float attackRecoveryTime = 1f;
 
 
     [Header("Animation")]
@@ -99,7 +99,7 @@ public class EnemyChase : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogWarning("EnemyChase: NavMeshSurface не найден");
+                    Debug.LogWarning("EnemyChase: NavMeshSurface Г­ГҐ Г­Г Г©Г¤ГҐГ­");
                     agent = null;
                     rb.interpolation = RigidbodyInterpolation.Interpolate;
                     return;
@@ -223,7 +223,7 @@ public class EnemyChase : MonoBehaviour
                     agent.nextPosition = rb.position;
                 }
                 if (useCrossFade_Run != false)
-                    _animator.CrossFade("Run", 0.1f);  //  <--- это потратило мои 3 часа жизни
+                    _animator.CrossFade("Run", 0.1f);
 
                 
 
@@ -235,7 +235,7 @@ public class EnemyChase : MonoBehaviour
 
     }
 
-    // запускать из внешних скриптов(аддонов) что бы ОСТАНОВИТЬ работу нпс
+
     public bool BeginExternalAction()
     {
         if (currentState == EnemyState.ExternalAction)
@@ -245,7 +245,7 @@ public class EnemyChase : MonoBehaviour
         return true;
     }
 
-    // запускать из внешних скриптов(аддонов) что бы вновь ЗАПУСТИТЬ работу нпс
+
     public bool EndExternalAction()
     {
         if (currentState == EnemyState.Chase)
@@ -291,7 +291,7 @@ public class EnemyChase : MonoBehaviour
 
 
     //   ==============================================----------------------------------------------------------------===============================================
-    //                                                                ||||DefaultEnemy Logic||||
+    //                                                                ||||EnemyChase Logic||||
     //   ==============================================----------------------------------------------------------------===============================================
 
 
@@ -307,14 +307,14 @@ public class EnemyChase : MonoBehaviour
 
         if (player != null)
         {
-            float dist = Vector3.Distance(transform.position, player.position); //Vector3.Distance - вычисляет дистанцию между 2-мя точками
+            float dist = Vector3.Distance(transform.position, player.position);
             if (dist <= stoppingDistance + 0.5f)
             {
                 if (overlapAttack == null)
                     overlapAttack = GetComponentInChildren<OverlapAttack>();
 
                 if (overlapAttack == null)
-                    Debug.LogError("DefaulEnemy: остутвует OverLapAttack на объекте");
+                    Debug.LogError("DefaulEnemy: Г®Г±ГІГіГІГўГіГҐГІ OverLapAttack Г­Г  Г®ГЎГєГҐГЄГІГҐ");
                 overlapAttack.TryPerformAttack();
             }
         }
