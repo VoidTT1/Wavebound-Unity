@@ -35,9 +35,9 @@
 
 
 
-![](Media/screenshots/combat.png) | ![](Media/screenshots/shop.png) 
+![](Media/screenshots/combat.png)  ![](Media/screenshots/shop.png) 
 
-![](Media/screenshots/boss.png) | ![](Media/screenshots/inventory.png) 
+![](Media/screenshots/boss.png)  ![](Media/screenshots/inventory.png) 
 
 
 ## Геймплей
@@ -193,7 +193,7 @@ Models:
 
 # 👤 Developer
 
-**Solo Developer — VoidTT1**
+**Solo Developer - VoidTT1**
 
 
 ## License
