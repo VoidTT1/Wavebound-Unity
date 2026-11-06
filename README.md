@@ -1,6 +1,6 @@
 # Wavebound-Beta-v0.2
 
-# Project Status
+## Project Status
 
 **Current stage:** Beta-v0.2
 
@@ -22,14 +22,15 @@
 ![WaveBound Gameplay](Media/gameplay.gif)
 
 
-# Controls
-Передвижение - WASD
-Interact/Pick up - E
-Jump - space
-Sprint - Shift
-Crouch - LCtrl
-Shoot - Left Mouse Button
-Reload - R
+## Controls
+
+ - Передвижение - WASD
+ - Interact/Pick up - E
+ - Jump - space
+ - Sprint - Shift
+ - Crouch - LCtrl
+ - Shoot - Left Mouse Button
+ - Reload - R
 
 
 
