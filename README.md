@@ -1,5 +1,10 @@
 # Wavebound-Beta-v0.2
 
+# Project Status
+
+**Current stage:** Beta-v0.2
+
+
 **WaveBound** - 3D FPS игра, созданная на Unity(2022.3.62f3) 
 
 Основной геймплей игры заключается в волнах или же раундах, в каждом раунде есть определённое количество разновидных врагов
@@ -15,6 +20,23 @@
 
 
 ![WaveBound Gameplay](Media/gameplay.gif)
+
+
+# Controls
+Передвижение - WASD
+Interact/Pick up - E
+Jump - space
+Sprint - Shift
+Crouch - LCtrl
+Shoot - Left Mouse Button
+Reload - R
+
+
+
+
+![](Media/screenshots/combat.png) | ![](Media/screenshots/shop.png) 
+
+![](Media/screenshots/boss.png) | ![](Media/screenshots/inventory.png) 
 
 
 ## Геймплей
@@ -66,7 +88,7 @@
 - Custom Knockback/External velocity system
 
 
-# ⚙️ Technical Showcase
+# Technical section
 ## Repository Structure
 
 ```text
@@ -102,13 +124,13 @@
 В проекте использовались 
 
 ## Enemy AI
-[EnemyChase]
+[EnemyChase.cs]
 В данном скрипте я использовал enum классы и для того что бы добавить враге гибкости, по сути для его работы нужны:базовые компоненты(collider,rb), navMesh и скрипты EnemyChase(или же DefaultEnemy) и скрипт атаки, хочешь что бы враг умел таранить? пожалуйста, делаешь скрипт и в нём вызываешь BeginExternalAction() что бы остановить работу enemyChase и когда закончил включаешь обратно при помощи EndExternalAction(), так делать(        enemyChase.currentState = EnemyChase.EnemyState.ExternalAction;) настоятельно не рекомендую, так ты обойдёшь методы SetState и EnterState где меняется состояние и враг может нормально функционировать, 
 лучше все таки использовать SetState(); и через него вызывать ExternalAction, или же BeginExternalAction.
 
 Эта система помогла мне легче написать аддоны для других видов врагов, прямой пример: [FootStepAttackAddon.cs] - это аддон для босса(да, в основе опять же лежит EnemyChase), там перед стартом анимации(Animation Event в которой запускает освновной метод) активируется BeginExternalAction.
 
-*По мимо этого в скрипте используются привычне NavMesh от Unity для задавания направления, а так же в другой версии скрипта [DefaultEnemy] при помощи navMesh реализован патруль
+*По мимо этого в скрипте используются привычне NavMesh от Unity для задавания направления, а так же в другой версии скрипта [DefaultEnemy.cs] при помощи navMesh реализован патруль
 
 
 ## Combat & Damage
@@ -120,174 +142,59 @@
 Основным оружием по мимо способностей и особенностей для Enemy является OverlapAttack, его можно просмотреть здесь>[OverlapAttack.cs]
 
 
-## Physics
+## Physics(of destruction)
+
+ - В самой игре есть взрывы, и при помощи этих врзывов можно разрушать заборы на карте(пока что это больше вторичная механика потому что разрушаются пока что только заборы), за сам взрыв отвечает скрипт [Exploison], в нём я ввёл необычную механику - для игрока используется AddKnockback(по сути мы сами отталкиваем игрока), создал я это потому что система движения для игрока конфликтовала с Unity rb.AddExplosionForce, по этому я объеденил её с mover
+
+Обычные предметы(с rb и col), а так же врагов отбрасывает через AddExplosionForce который в ходе этого проекта я изучал в первые :/
+
+ - Разрушение объектов я сделал при помощи скрипта [DestroyObj.cs] который я взал из (не помню, позже найду и запишу), в нём я немного подправил некоторые части(некоторые модели не резались), а так же добавил возможность устанавливать размер новых частей в MakeGameobject
+
+
+## Inventory & Weapon Systems
+
+Это достаточно висомая система к которой я пришёл не сразу, начал её разработку я в другом своём проекте - (...), там я познакомился со ScriptableObject, для нормальной работы инвентаря мне нужно было создавать для каждого предмета свою базу и вешать на него worlditem, после чего сам инвентарь уже мог прочитать что за предмет мы взяли и сохранить его данные, из мира он соответственно удалялся.
+
+В текущем проекте у меня то что лежит на сцене и то что лежит в инвентаре совершенно разное, то есть я могу повесить на какой нибудь cube worlditem с базой данных оружия M249 и при подборе у меня в инвентаре будет M249, к этому я пришёл не сразу(хотя ну это же логично  :/)
+
+
+## Other
+
+### Оптимизация игры сделана через LOD, а так же Oculision Culling
+
+Так же в ходе проекта остались механики которые я не добавил в Beta:
+- [kick.cs] - удар ногой, удар который должен откидывать врагов активируя ragdoll от unity, а так же разрушать предметы, я это не ввёл потому что она ещё до конца не доработана, в demo для steam собераюсь ввести
+- [Portal.cs] - порталы, какое то время я эксперементировал со скриптами которые взял из инернета, хотел при помощи порталов сделать бессконечное пшеничное поле, идею бросил из за нереализуемости, вряд-ли я буду снова  этим заниматся
 
 
 
+# Project plans
+Данный проект находится на 2м этапе разработки(Beta версия)
+- Alpha
+- Beta  <--
+- Demo
+- Realese
+
+### В Demo версию я планирую добавить мультиплеер(через Mirror так как я уже с ним работал в []), новые предметы, новые оружия, новую музыку, увеличенные возможности настроек(назначение клавиш, выбор микрафона...), кат-сцены и механику удара ногой[kick.cs] с ragdol как для врагов, так и для игрока(что бы можно было пинать друг друга в мультиплеере) + по возможности добавить и улучшить визуал игры(модели/UI) 
+
+### В релизе я планирую сделать не 5, а 15 волн с совершенно другими врагами с уникальными способностями, а так же новыми боссами, новые карты, режимы сложности, новый визуал, новые механики, а так же обновление того что уже было
+После Demo версии я планирую остановить разработку, по этому не знаю когда смогу сделать релиз, и сделаю ли вообще, в любом случае за этот проект я смог сильно прокочать свои навыки программирования и владением Unity :)
 
 
-Abilities currently include systems such as:
+# Resources used
+Множество ресрсов было взято из Asset Store, такие как: [3D Modern Menu UI] и [Free Quick Effects Vol. 1]
+Models:
+ - [RetroWeaponPack]
 
-- Charge attack
-- Area / stomp attack
-- Projectile attack
-- Enemy summoning
-
-This avoids duplicating the entire enemy controller for every boss ability.
+Все остальные ресурсы так же были бесплатными и без авторского права(ссылок уже вспомню)
 
 
-## 🎒 Inventory & Weapon Systems
-
-WaveBound also contains a larger data-driven inventory and weapon-state system.
-
-It supports:
-
-- Inventory slots
-- Hotbar weapon selection
-- Ammo state persistence
-- Weapon upgrades
-- Item stacking
-- Currency
-- Shops
-- World item pickups
-
-The complete implementation is not included in this public repository, but it can be demonstrated during a technical interview.
-
----
-
-# 📂 Repository Structure
-
-```text
-WaveBound/
-│
-├── Code/
-│   ├── AI/
-│   │   ├── EnemyChase.cs
-│   │   ├── BossController.cs
-│   │   └── ...
-│   │
-│   ├── Combat/
-│   │   ├── OverlapAttack.cs
-│   │   ├── Explosion.cs
-│   │   └── ...
-│   │
-│   ├── Player/
-│   │   ├── Mover.cs
-│   │   └── ...
-│   │
-│   ├── Interfaces/
-│   │   └── ...
-│   │
-│   └── ...
-│
-├── Media/
-│   ├── gameplay.gif
-│   └── screenshots/
-│
-└── README.md
-```
-
-> The repository contains selected source code for portfolio purposes and is not intended to be a complete playable Unity project.
-
----
-
-
-**Unity version:** `<UNITY_VERSION>`
-
----
-
-# 🎮 Controls
-
-| Input | Action |
-|---|---|
-| `W A S D` | Movement |
-| Mouse | Look |
-| Left Mouse Button | Fire |
-| `R` | Reload |
-| `E` | Interact / pick up |
-| `1–4` | Hotbar / weapon selection |
-| `Shift` | Sprint |
-| `Ctrl` | Crouch |
-| `Space` | Jump |
-| `Esc` | Settings / close menu |
-
-> Adjust these controls to match the current Beta exactly.
-
----
-
-# 📸 Screenshots
-
-| Combat | Shop |
-|---|---|
-| ![](Media/screenshots/combat.png) | ![](Media/screenshots/shop.png) |
-
-| Boss Fight | Inventory |
-|---|---|
-| ![](Media/screenshots/boss.png) | ![](Media/screenshots/inventory.png) |
-
----
-
-# 🚧 Project Status
-
-**Current stage:** Beta
-
-The current public Beta includes the core gameplay loop and 5 waves.
-
-Future development may include:
-
-- More waves
-- Additional maps
-- New enemy types
-- New weapons
-- Additional boss encounters
-- Gameplay balancing
-- Performance improvements
-
----
-
-# 📦 Download
-
-The latest Windows build is available through GitHub Releases:
-
-[⬇ Download WaveBound Beta](<GITHUB_RELEASE_URL>)
-
-A browser version is available on itch.io if WebGL is supported:
-
-[▶ Play WaveBound](<ITCH_IO_URL>)
-
----
-
-# ℹ️ Source Code Notice
-
-This repository is a **programming portfolio**, not the complete production project.
-
-Only selected source code is publicly available.
-
-The full Unity project contains additional proprietary project code and third-party assets that are not distributed through this repository.
-
-Additional systems can be demonstrated during a technical interview.
-
----
 
 # 👤 Developer
 
 **Solo Developer — VoidTT1**
 
-Main areas of work:
-
-- Gameplay programming
-- Enemy AI
-- Combat systems
-- Inventory / weapon systems
-- UI systems
-- Game progression
-- Physics interactions
-- Optimization and debugging
-
----
 
 ## License
 
-The public source code in this repository is provided for portfolio and demonstration purposes.
-
-Third-party assets used by the playable game remain subject to their respective licenses.
+Исходный код, представленный в этом репозитории, предназначен для портфолио и демонстрационных целей
