@@ -191,7 +191,7 @@ Models:
 
 
 
-# 👤 Developer
+# Developer
 
 **Solo Developer - VoidTT1**
 
