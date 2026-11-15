@@ -184,7 +184,7 @@
 
 # Resources used
 Множество ресрсов было взято из Asset Store, такие как: [3D Modern Menu UI] и [Free Quick Effects Vol. 1]
-Models:
+- Models:
  - [RetroWeaponPack]
 
 Все остальные ресурсы так же были бесплатными и без авторского права(ссылок уже вспомню)
