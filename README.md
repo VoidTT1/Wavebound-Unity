@@ -18,7 +18,7 @@
 
 
 
-##Gif:
+## Gif:
 
 ![WaveBound Gameplay](Media/Gif/Gif1.gif) 
 --------------------------------------------
