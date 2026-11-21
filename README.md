@@ -17,7 +17,9 @@
 
 
 
-![WaveBound Gameplay](Media/Gif/Gif1.gif) | ![WaveBound Gameplay](Media/Gif/Gif2.gif)
+![WaveBound Gameplay](Media/Gif/Gif1.gif) 
+--------------------------------------------
+![WaveBound Gameplay](Media/Gif/Gif2.gif)
 
 
 
