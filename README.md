@@ -18,7 +18,7 @@
 
 
 
-
+##Gif:
 
 ![WaveBound Gameplay](Media/Gif/Gif1.gif) 
 --------------------------------------------
@@ -89,6 +89,7 @@
 
 
 # Technical section
+
 ## Repository Structure
 
 ```text
@@ -147,7 +148,7 @@
 
 Обычные предметы(с rb и col), а так же врагов отбрасывает через AddExplosionForce который в ходе этого проекта я изучал в первые :/
 
- - Разрушение объектов я сделал при помощи скрипта [DestroyObj.cs](https://github.com/VoidTT1/Wavebound-Unity/blob/main/Assets/Scripts/Physics/DestroyObj.cs) который я взал из (не помню, позже найду и запишу), в нём я немного подправил некоторые части(некоторые модели не резались), а так же добавил возможность устанавливать размер новых частей в MakeGameobject
+ - Разрушение объектов я сделал при помощи скрипта [DestroyObj.cs](https://github.com/VoidTT1/Wavebound-Unity/blob/main/Assets/Scripts/Physics/DestroyObj.cs) который я взал из (https://gist.github.com/ditzel/73f4d1c9028cc3477bb921974f84ed56), в нём я немного подправил некоторые части(некоторые модели не резались), а так же добавил возможность устанавливать размер новых частей в MakeGameobject
 
 
 ## Inventory & Weapon Systems
@@ -174,6 +175,7 @@
 - 3.Demo
 - 4.Realese
 
+
 ### В Demo версию я планирую добавить мультиплеер(через Mirror так как я уже с ним работал в []), новые предметы, новые оружия, новую музыку, увеличенные возможности настроек(назначение клавиш, выбор микрафона...), кат-сцены и механику удара ногой [kick.cs](https://github.com/VoidTT1/Wavebound-Unity/blob/main/Assets/Scripts/Attacks/kick.cs) с ragdol как для врагов, так и для игрока(что бы можно было пинать друг друга в мультиплеере) + по возможности добавить и улучшить визуал игры(модели/UI) 
 
 ### В релизе я планирую сделать не 5, а 15 волн с совершенно другими врагами с уникальными способностями, а так же новыми боссами, новые карты, режимы сложности, новый визуал, новые механики, а так же обновление того что уже было
@@ -184,8 +186,14 @@
 Множество ресрсов было взято из Asset Store, такие как: [3D Modern Menu UI](https://assetstore.unity.com/packages/tools/gui/3d-modern-menu-ui-116144) и [Free Quick Effects Vol. 1](https://assetstore.unity.com/packages/vfx/particles/free-quick-effects-vol-1-304424)
 
  Models:
-- [RetroWeaponPack]
-- 
+- [RetroWeaponPack](https://kuptchi.itch.io/f)
+- [StylizedSkeleton](https://hotstrikestudio.itch.io/free-stylized-skeleton)
+
+Scripts and Systems:
+ - [Outline](https://github.com/chrisnolet/QuickOutline)
+ - [MeshDestroy](https://gist.github.com/ditzel/73f4d1c9028cc3477bb921974f84ed56)
+
+ 
 
 Все остальные ресурсы так же были бесплатными и без авторского права(ссылок уже вспомню)
 
