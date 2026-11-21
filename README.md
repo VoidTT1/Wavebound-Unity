@@ -16,7 +16,9 @@
 [Download Windows build](<https://github.com/VoidTT1/Wavebound-Unity/releases/tag/v0.2-beta>)
 
 
-![WaveBound Gameplay](Media/gameplay.gif)
+
+![WaveBound Gameplay](Media/Gif/Gif1.gif)  ![WaveBound Gameplay](Media/Gif/Gif2.gif)
+
 
 
 ## Controls
@@ -32,10 +34,9 @@
 
 
 
+![](Media/screenshot2.png)  ![](Media/screenshot3.png) 
 
-![](Media/screenshots/combat.png)  ![](Media/screenshots/shop.png) 
 
-![](Media/screenshots/boss.png)  ![](Media/screenshots/inventory.png) 
 
 
 ## Геймплей
