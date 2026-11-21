@@ -24,13 +24,14 @@
 
 ## Controls
 
- - Передвижение - WASD
+ - Movement - WASD
  - Interact/Pick up - E
  - Jump - space
  - Sprint - Shift
  - Crouch - LCtrl
  - Shoot - Left Mouse Button
  - Reload - R
+ - Drop Item - G
 
 
 
