@@ -17,7 +17,7 @@
 
 
 
-![WaveBound Gameplay](Media/Gif/Gif1.gif)  ![WaveBound Gameplay](Media/Gif/Gif2.gif)
+![WaveBound Gameplay](Media/Gif/Gif1.gif) | ![WaveBound Gameplay](Media/Gif/Gif2.gif)
 
 
 
@@ -31,11 +31,6 @@
  - Shoot - Left Mouse Button
  - Reload - R
  - Drop Item - G
-
-
-
-![](Media/screenshot2.png)  ![](Media/screenshot3.png) 
-
 
 
 
