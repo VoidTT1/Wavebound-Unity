@@ -10,10 +10,7 @@
 Основной геймплей игры заключается в волнах или же раундах, в каждом раунде есть определённое количество разновидных врагов
 
 ### Browser
-[Play on itch.io](<ITCH_IO_URL>)
-
-### Gameplay Video
-[Youtube Video](<YOUTUBE_URL>)
+[Play on itch.io](<[ITCH_IO_URL](https://void-t.itch.io/wavebound)>)
 
 ### Windows Version
 [Download Windows build](<https://github.com/VoidTT1/Wavebound-Unity/releases/tag/v0.2-beta>)
